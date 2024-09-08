@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Available Medicine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+     crossorigin="anonymous">
+    </script>
+    <script src="js/jquery-1.8.2.min.js"></script>
+<!----------------------------------------------------------------------------------------------  -->
+
+<style>
+    .divfloat
+    {
+        float: left;
+
+    }
+
+    
+
+    #txtemail
+    {
+        margin-top: 40px;
+        width: 500px;
+        border: 5px;
+      border-color: black;
+      border-width: 3px;
+      border-style: solid;
+      margin-right: 40px;
+      
+    }
+
+    #txtmedname
+    {  margin-top: 40px;
+      margin-left: 50px;
+      border: 5px;
+      border-color: black;
+      border-width: 3px;
+      border-style: solid;
+      width: 400px;
+      
+    }
+
+    #packingtype
+    {
+        margin-top: 50px;
+      margin-left: 55px;
+      border: 5px;
+      border-color: black;
+      border-width: 3px;
+      border-style: solid;
+      
+      width: 250px;
+
+    }
+
+    #txtquantity
+    {
+    margin-top: 40px;
+      margin-left: 100px;
+      border: 5px;
+      border-color: black;
+      border-width: 3px;
+      border-style: solid;
+    
+      
+      width: 200px;
+
+    }
+
+    #txtdate
+    {
+      margin-top: 40px;
+      margin-left: 0px;
+      border: 5px;
+      border-color: black;
+      border-width: 3px;
+      border-style: solid;
+      margin-right: 25px;
+      width: 200px;
+    }
+    
+    #txtcompany
+    {
+        margin-top: 40px;
+      margin-left: 0px;
+      border: 5px;
+      border-color: black;
+      border-width: 3px;
+      border-style: solid;
+      margin-right: 25px;
+      width: 200px;
+
+    }
+
+    #profilepic
+    {
+        margin-top: 40px;
+      margin-left: 0px;
+     
+      margin-right: 55px;
+      width: 200px;
+
+    }
+
+    #prev
+    {
+        margin-top: 30px;
+        border: 5px;
+      border-color: black;
+      border-width: 3px;
+      border-style: solid;
+    }
+
+    #txtdesc
+    {
+     margin-top: 60px;
+      margin-left: 30px;
+      border: 5px;
+      border-color: black;
+      border-width: 3px;
+      border-style: solid;
+      margin-right: 25px;
+      width: 800px;
+      height: 100px;
+
+    }
+
+    #button
+    {
+        margin-top: 80px;
+      margin-left: 280px;
+      
+      margin-right: 25px;
+      width: 280px;
+      height: 50px;
+      font-size: medium;
+    }
+    
+    
+
+    label
+    {
+        margin-top: 40px;
+        margin-left: 27px;
+      
+        
+    }
+
+    #divimg
+    {
+      /* float: left; */
+      margin-left: -1200px;
+      
+      /* border: 3px;
+        border-radius: 2px;
+        border-style: ridge;
+        border-color: crimson; */
+        width: 130px;
+        height: 40px;
+        /* margin-top: 30px; */
+        /* margin-left: 40px; */
+
+    }
+
+    #heading
+    {
+        margin-top: 10px;
+        /* border: 3px;
+        border-radius: 2px;
+        border-style: ridge;
+        border-color: crimson; */
+        width:800px;
+        margin-left: 250px;
+        /* background-color: aliceblue; */
+        float: left;
+    }
+
+    #imagemodify
+    {
+      width: 80px;
+      height: 80px;
+      /* border: 10px; */
+      border-radius: 50%;
+      /* border-color: rgb(93, 23, 205); */
+      border-style: solid;;
+      margin-top: -60px
+
+      
+        
+    }
+</style>
+<!----------------------------------------------------------------------------------------------  -->
+
+<script>
+
+    function loadFile(ref) 
+      {
+            var image = document.getElementById('prev');
+            image.src = URL.createObjectURL(ref.files[0]);
+      }
+
+      
+</script>
+
+<script>
+  $(document).ready(function(){
+              var activeUser=localStorage.getItem("activeUser");
+              $("#txtemail").val(activeUser).prop("readonly",true);
+               alert(activeUser);
+      })
+</script>
+ <!----------------------------------------------------------------------------------------------  -->
+<body>
+
+    
+        <form method="post" action="/medicine-process" enctype="multipart/form-data" >
+            <div class="container">
+            <center>
+              <div id="heading" >
+
+                <h2>
+                  <center>
+                    <p style="color: #0d9ddf;">
+                   MEDICINE DONATION PORTAL
+                    </p>
+                  </center>
+                </h2>
+               
+              </div>
+        
+              <div id="divimg">
+                <img src="uploads/logo3.png" alt="" id="imagemodify">
+              </div>
+              <br>
+            <div id="content">
+                <h4>
+                    <p style="color: red;" >
+                        POST MEDECINES TO DONATE
+                    </p>
+                    
+                </h4>
+            </div>
+ <!----------------------------------------------------------------------------------------------  -->
+                     <!-- Email or user id -->
+<div>
+    <div class="row g-2 align-items-center ">
+        <div class="col-auto">
+          <label for="inputPassword6"  >Email or User id</label>
+        </div>
+        <div class="col-md-6">
+          <input type="email" id="txtemail" name="txtemail" autofocus  aria-describedby="passwordHelpInline">
+        </div>
+        <div class="col-auto">
+          
+        </div>
+      </div>
+</div>
+
+<!----------------------------------------------------------------------------------------------  -->
+                     <!-- Medicine Name -->
+                     <div>
+    <div class="row g-2 align-items-center divfloat">
+        <div class="col-auto">
+          <label for="inputPassword6"  >Medicine Name</label>
+        </div>
+        <div class="col-md-4">
+          <input type="text" id="txtmedname" name="txtmedname"   aria-describedby="passwordHelpInline">
+        </div>
+        <div class="col-auto">
+          
+        </div>
+      </div>
+</div>
+
+<!----------------------------------------------------------------------------------------------  -->
+                     <!--Packing-->
+<div>
+    <div class="row g-2 align-items-center divfloat ">
+        <div class="col-auto">
+          <label for="inputPassword6"  >Packing type</label>
+        </div>
+        <input type="text" id="packingtype" placeholder="Please select from below" required name="packingtype" 
+        aria-describedby="passwordHelpInline" list="selectidlist">
+        <datalist id="selectidlist" >
+          <option value="Tablet">Tablet</option>
+          <option value="Syrup">Syrup</option>
+          <option value="Sachet">Sachet</option>
+          
+          </datalist>
+        
+      </div>
+</div>
+<!----------------------------------------------------------------------------------------------  -->
+                     <!-- Quantity -->
+    <div>
+    <div class="row g-2 align-items-center divfloat">
+        <div class="col-auto">
+          <label for="inputPassword6"  >Quantity</label>
+        </div>
+        <div class="col-md-4">
+          <input type="number" id="txtquantity" name="txtquantity"   aria-describedby="passwordHelpInline">
+        </div>
+        <div class="col-auto">
+          
+        </div>
+      </div>
+</div>
+
+<!----------------------------------------------------------------------------------------------  -->
+                     <!-- Expiry Date -->
+     <div>
+    <div class="row g-2 align-items-center divfloat">
+        <div class="col-auto">
+          <label for="inputPassword6"  >Expiry Date</label>
+        </div>
+        <div class="col-md-4">
+          <input type="date" id="txtdate" name="txtdate"   aria-describedby="passwordHelpInline">
+        </div>
+        <div class="col-auto">
+          
+        </div>
+      </div>
+</div>
+
+<!----------------------------------------------------------------------------------------------  -->
+                     <!-- Expiry Date -->
+     <div>
+    <div class="row g-2 align-items-center divfloat ">
+        <div class="col-auto">
+          <label for="inputPassword6"  >Company Name</label>
+        </div>
+        <div class="col-md-4">
+          <input type="text" id="txtcompany" name="txtcompany"   aria-describedby="passwordHelpInline">
+        </div>
+        <div class="col-auto">
+          
+        </div>
+      </div>
+</div>
+<!----------------------------------------------------------------------------------------------  -->
+                     <!-- Medicine Pic -->
+     <div>
+    <div class="row g-2 align-items-center  ">
+        <div class="col-auto">
+          <label for="inputPassword6"  >Medicine Pic</label>
+        </div>
+        <div class="col-md-4">
+          <input type="file" id="medpic" name="medpic"  onchange="loadFile(this)" aria-describedby="passwordHelpInline">
+        </div>
+        <div class="col-auto">
+          <img src="" alt="" name="prev" id="prev" width="100" height="100"> 
+          
+        </div>
+      </div>
+</div>
+<!----------------------------------------------------------------------------------------------  -->
+                                    <!-- Description -->
+<div>
+    <div class="row g-2 align-items-center ">
+        <div class="col-auto">
+          <label for="inputPassword6" > Description</label>
+        </div>
+        <div class="col-md-4">
+          <input type="text" id="txtdesc" name="txtdesc"   aria-describedby="passwordHelpInline">
+        </div>
+        <div class="col-auto">
+          
+        </div>
+      </div>
+</div>
+<!-- !----------------------------------------------------------------------------------------------  --> 
+                                    <!-- Button -->
+<div>
+    <div class="row g-2 align-items-center ">
+        <div class="col-md-6">
+         
+        <div class="col-md-4">
+          <input type="submit" id="button" name="button" class="btn btn-outline-danger form-control"
+           value="List the Medicine" aria-describedby="passwordHelpInline">
+        </div>
+        <div class="col-auto">
+          
+        </div>
+      </div>
+</div>
+
+
+<!----------------------------------------------------------------------------------------------  -->
+                    
+    </div>
+  </center>
+    </div>
+</form>
+  </body>
+</html>

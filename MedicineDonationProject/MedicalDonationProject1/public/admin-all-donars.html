@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="js/angular.min.js"></script>
+  <!---------------------------------------------------------------------------------------------------  -->
+<script>
+    var modulekuch=angular.module("myModule",[]);
+    modulekuch.controller("myController",function($scope,$http){
+
+        $scope.jsonary=[];
+        $scope.fetchdonars=function()
+        {
+            $http.get("/fetchdonars").then(fxsuccess,function(response){
+                alert(JSON.stringify(response.data))
+            });
+            function fxsuccess(response)
+            {
+                $scope.jsonary=response.data;
+            }
+        }
+
+        
+
+    });
+
+    </script>
+ <!-- --------------------------------------------------------------------------------------------------- -->
+ 
+ <style>
+    #table
+    {
+        margin-top: 50px;
+    }
+ </style>
+
+ <!-- --------------------------------------------------------------------------------------------------- -->
+
+ <body ng-app="myModule" ng-controller="myController" ng-init="fetchdonars();">
+    <div class="container">
+        <form>
+            <center>
+                <div>
+                   <h2>
+                MEDICAL DONATION PORTAL
+                   </h2>
+                </div>
+                <div>
+                    <h4>
+                        ALL DONARS LIST
+                    </h4>
+                </div>
+<!-- --------------------------------------------------------------------------------------------------->
+<table border="1" rules="all" id="table" width="1200" height="600">
+    <tr bgcolor="#66ccff">
+    <th>sr no</th>    
+    <th>emailid</th>
+    <th>name</th>
+    <th>mobile</th>
+    <th>address</th>
+    <th>city</th>
+    <th>prooftype</th>
+    <th>timings</th>
+    <th>proofpic</th>
+    <th>profilepic</th>
+</tr>
+
+<tr ng-repeat="obj in jsonary">
+    <td>{{$index+1}}</td>
+    <td>{{obj.emailid}}</td>
+    <td>{{obj.name}}</td>
+    <td>{{obj.mobile}}</td>
+    <td>{{obj.address}}</td>
+    <td>{{obj.city}}</td>
+    <td>{{obj.prooftype}}</td>
+    <td>{{obj.timings}}</td>
+    <td align="center"> <img src="uploads/{{obj.proofpic}}" alt="" width="50" height="50"></td>
+    <td align="center"> <img src="uploads/{{obj.profilepic}}" alt="" width="50" height="50"></td>
+    
+
+
+</tr>
+
+
+</table>
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ <!-- --------------------------------------------------------------------------------------------------->
+
+            </center>
+        </form>
+
+    </div>
+
+
+ </body>
+
+
+
+
+
+
+

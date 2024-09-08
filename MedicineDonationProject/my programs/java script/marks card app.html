@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+
+
+<script>
+
+    function doTotal()
+    {
+        var va= document.frm.takeC.value;
+        var vb=document.frm.takeJava.value;
+        var vc=document.frm.takeWeb.value;
+        var total;
+        total=parseInt(va)+parseInt(vb)+parseInt(vc);
+
+        document.frm.txtTotal.value=total;
+
+
+    }
+
+    function doPercentage()
+    {
+        var v=document.frm.txtTotal.value;
+        var percen;
+        percen=(v/3)/100;
+        document.frm.txtPer.value=percen;
+
+    }
+
+    function doResult()
+    {
+        var r=document.frm.txtPer.value;
+        if(r>0.33)
+        {
+            document.frm.txtResult.value="Pass"
+        }
+        else
+        document.frm.txtResult.value="  Fail"
+
+
+
+    }
+
+    function doClear()
+    {
+        document.frm.takeC.value=""
+        document.frm.takeJava.value=""
+        document.frm.takeWeb.value=""
+    }
+
+
+</script>
+
+
+<body>
+
+    <form name="frm">
+        <center>
+        <table>
+            <tr>
+                <th>
+                    <h2> Marks Card App </h2>
+
+                    <tr>
+                        <td>C++</td>
+                        <td><input type="text" autofocus required name="takeC" value="20" ></td>
+                    </tr>
+                    <tr>
+                        <td>Java</td>
+                        <td><input type="text" name="takeJava" value="10" ></td>
+                    </tr>
+                    <tr>
+                        <td>Web</td>
+                        <td><input type="text" name="takeWeb" required value="30" ></td>
+                    </tr>
+
+                </table>
+                <table>
+
+                    <tr>
+                       
+                        <td><td> <input type="button"  value="Total" onclick="doTotal();" ></td></td>
+                        <td><td> <input type="button" value="Percentage" onclick="doPercentage();"></td></td>
+                        <td><td> <input type="button"  value="Result" onclick="doResult();"></td></td>
+                        <td><td> <input type="reset"> </td></td> 
+                        <td><td> <input type="button" value="Clear" onclick="doClear();"></td></td>
+                    </tr>
+                </table>
+                <br>
+                <table>
+
+                    <tr>
+                        <td>Total</td>
+                        <td><input type="text" name="txtTotal"></td>
+                    </tr>
+                    <tr>
+                        <td>Percentage</td>
+                        <td><input type="text" name="txtPer" ></td>
+                    </tr>
+                    <tr> 
+
+                        <td>Result </td>
+                        <td> <input type="text" name="txtResult" ></td>
+                    </tr>    
+                   
+
+                </table>
+          
+
+                </table>
+            </center>
+         </form>
+    </body>
+</html>

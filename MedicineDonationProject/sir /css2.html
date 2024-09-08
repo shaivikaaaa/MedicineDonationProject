@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <style>
+        /* Class Selector */
+        .btn-kuch
+        {
+            /* padding-top: 10px; padding-bottom: 10px; */
+            padding: 10px 10px 10px 10px;
+             background-color: coral;
+            text-align: center;
+            cursor: pointer; font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+            margin:20px 10px 20px 10px;
+            border-radius: 10px  10px 0px 0px;
+        }
+        .btn-log
+        {
+            background-color: yellow;
+        }
+        .btn-kuch:hover
+        {
+               background-color: black; 
+               color: coral;
+               border-radius: 10px  10px 10px 10px;
+        }
+        .btn:active{
+            transform: translate(5px,5px);
+        }
+
+       
+    </style>
+</head>
+<body>
+        <div class="btn-kuch">
+            Signup
+        </div>
+        <div class=" btn-log btn-kuch">
+            Login Here
+        </div>
+        <div class="btn-kuch btn-log" >
+            Home
+        </div>
+</body>
+</html>

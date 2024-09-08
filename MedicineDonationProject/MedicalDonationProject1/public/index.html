@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>INDEX PAGE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- -------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- AJAX REQ FIRING AND JSON SE B KRA -->
+  <script>
+    $(document).ready(function(){
+      $("#modalsignupbtn").click(function(){
+      var email=$("#signupemail").val();
+      var pwd=$("#signuppwd").val();
+      var utype=$("#usertype").val();
+
+
+    var url="/savesignup?signupemail="+email+"&signuppwd="+pwd+"&utype="+utype;
+    $.get(url,function(respkuch){
+      alert("Signed up successfully");
+    })
+    });
+
+    // <!-- ------------------------------------------------------------------------
+      $(document).ready(function(){
+        // alert();
+    $("#modalloginbtn").click(function(){
+    var email=$("#loginemail").val();
+    var pwd=$("#loginpwd").val();
+    var url="/chklogin?loginemail="+email +"&loginpwd="+pwd;
+    // alert(url);
+   $.getJSON(url,function(jsonAry){
+    // alert(jsonAry.length);
+    if(jsonAry.length==0)
+   alert("Invalid email or password");
+   else
+   {
+    localStorage.setItem("activeUser",$("#loginemail").val());
+    //alert(" Welcome:"+jsonAry[0].usertype);
+    if(jsonAry[0].utype=="DONAR")
+    {
+      window.location.replace("/dash-donar.html");
+      // alert("done");
+    }
+    
+    else
+    {
+      if(jsonAry[0].utype=="NEEDY")
+      {
+        // alert("done");
+        window.location.replace("/dash-needy.html");
+        
+      }
+    }
+   }
+  
+
+   });
+    })
+   });
+      })
+  </script>
+
+  
+    
+  
+
+<!-- -------------------------------------------------------------------------------------------------------------- -->
+  <style>
+    #heading
+    {
+        margin-top: 10px;
+        /* border: 3px;
+        border-radius: 2px;
+        border-style: ridge;
+        border-color: crimson; */
+        width:800px;
+        margin-left: 300px;
+        /* background-color: aliceblue; */
+        float: left;
+    }
+
+    #button1
+    {
+        margin-left: 1150px;
+        margin-top: -50px;
+        margin-right: 10px;
+        /* padding-left: 10px; */
+        margin-bottom: 200px;
+        float: left;
+        /* border: 3px;
+        border-radius: 2px;
+        border-style: ridge;
+        border-color: crimson; */
+    }
+
+    #button2
+    {
+        /* margin-left: 750px; */
+        margin-top: -50px;
+        padding-right: 10px;
+        /* padding-left: 10px; */
+        /* margin-bottom: 200px; */
+        float: left;     
+        /* border: 3px;
+        border-radius: 2px;
+        border-style: ridge;
+        border-color: crimson; */
+    }
+
+
+    #modalsignupbtn
+    {
+      margin-right: 190px;
+    }
+
+    #modalloginbtn
+    {
+      margin-right: 200px;
+    }
+
+    #txtmodal
+    {
+        align-items: center;
+        margin-left: 160px;
+    }
+
+    #design-signup
+    {
+        width: 100%;
+        border: 2px;
+        height: 100%;
+        background-color: red; 
+    }
+
+    #design-login
+    {
+        width: 100%;
+        border: 2px;
+        height: 100%;
+        background-color: aqua; 
+    }
+
+    /* .btnclass1
+    {
+      margin-left: 1050px;
+      float: left;
+    }
+
+    .btnclass2
+    {
+      margin-left: 1250px;
+      float: left;
+    } */
+
+    #imagemodify
+    {
+      width: 80px;
+      height: 80px;
+      /* border: 10px; */
+      border-radius: 50%;
+      /* border-color: rgb(93, 23, 205); */
+      border-style: solid;;
+      margin-top: -60px
+
+      
+      
+    }
+
+    #divimg
+    {
+      /* float: left; */
+      margin-left: 1000px;
+      margin-left: 0px;
+      /* border: 3px;
+        border-radius: 2px;
+        border-style: ridge;
+        border-color: crimson; */
+        width: 130px;
+        height: 40px;
+        /* margin-top: 30px; */
+        margin-left: 40px;
+
+    }
+
+    #carouseldiv
+    {
+      width: 100%px;
+      height: 500px;
+      border: 3px;
+        border-radius: 2px;
+        border-style: ridge;
+        border-color: crimson;
+        margin-top:-140px ;
+        float: left;
+    }
+
+    .carouselpic
+    {
+      width: 100%px;
+      height: 100px;
+      align-items: flex-end;
+      /* border: 3px;
+        border-radius: 2px;
+        border-style: ridge;
+        border-color: rgb(183, 220, 20); */
+    }
+    .divfloat
+    {
+      float: left;
+    }
+
+    #card1
+    {
+      margin-right: 20px;
+      margin-top: 60px;
+      margin-left: 120px;
+    }
+
+    #card2
+    {
+      margin-right: 30px;
+      margin-top: 60px;
+     
+    }
+
+    #card3
+    {
+      margin-right: 30px; 
+      margin-top: 60px;
+    } 
+   
+
+    #beauty
+    {
+      border: 3px;
+        border-radius: 2px;
+        border-style: ridge;
+        border-color: rgb(20, 183, 220);
+        height: 50px;
+    }
+
+    #reachus
+    {
+      /* border: 3px;
+        border-radius: 2px;
+        border-style: ridge;
+        border-color: rgb(157, 20, 220); */
+        margin-top: 1050px;
+        height: 400px;
+    }
+
+    #map
+    {
+      height: 390px;
+      width: 1420px;
+    }
+
+    #developers
+    {
+      border: 3px;
+        border-radius: 2px;
+        border-style: ridge;
+        border-color: rgb(220, 20, 57);
+        margin-top: 40px;
+        height: 400px;
+        width: 50%;
+        float: left;
+    }
+
+    #guidance
+    {
+      float: left;
+      border: 3px;
+        border-radius: 2px;
+        border-style: ridge;
+        border-color: rgb(220, 93, 20);
+        margin-top: 40px;
+        height: 400px;
+        width: 50%;
+    }
+
+    /* #divservice
+    {
+      border-radius: 2px;
+        border-style: ridge;
+        border-color: rgb(20, 220, 57);
+        margin-top: 430px;
+        height: 50px;
+    } */
+    
+
+
+
+
+
+
+    
+
+    </style>
+ <!-- /* -------------------------------------------------------------------------------------------------------------------------------- */ -->
+  
+  <body>
+    <div id="container">
+      <form method="get" >
+      <div id="heading" >
+
+        <h2>
+          <center>
+            <p style="color: #0d9ddf;">
+              MEDICINE DONATION PORTAL
+            </p>
+          </center>
+        </h2>
+       
+      </div>
+
+      <div id="divimg">
+        <img src="uploads/logo3.png" alt="" id="imagemodify">
+      </div>
+      
+      
+  
+      <!-- <div>
+        <a href="angular-jsg.html"> <h1> <center><font color="red">angular here</font></center> </h1> </a>
+        <a href="admin-panel.html"> <h1> <center><font color="red">angular m here</font></center> </h1> </a>
+      </div> -->
+  <!-- ------------------------------------------------------------------------------------------------------------  -->
+                           
+                                       <!-- SIGNUP BUTTON MODAL -->
+    <!-- button trigger modal -->
+    
+    <div id="button1">
+      <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" name="signupbtn"
+      action="signup-process" id="signupbtn"  data-bs-target="#staticBackdrop">
+          SIGNUP
+        </button>
+      </div>
+        
+        
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" id="design-signup" >
+                <h5 class="modal-title" > <span id="txtmodal">SIGNUP HERE</span> </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" name="signupemail" value="hello.world21@gmail.com" id="signupemail" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      
+                  <div class="mb-3">
+                      <label for="exampleInputPassword1"  class="form-label">Password</label>
+                      <input type="password" value="hello" name="signuppwd" class="form-control" id="signuppwd">
+                    </div>
+      
+                    <div class="col-md-4">
+                      <label for="inputState" class="form-label"> User Type</label>
+                      <select name="usertype" id="usertype" class="form-select">
+                        <option selected> DONAR</option>
+                        <option> NEEDY</option>
+                      </select>
+                    </div>
+              </div>
+              <div class="modal-footer" id="design-signup">
+                  <button type="button" class="btn btn-info" name="modalsignupbtn" id="modalsignupbtn">SIGNUP</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </form>
+    
+  
+  <!--  ----------------------------------------------------------------------------------------------------->
+  <!-- Button trigger modal -->
+  <form method="get" action="savelogin">
+      <div id="button2">
+  <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" 
+      action="login-process" id="loginbtn" name="loginbtn" data-bs-target="#exampleModal">
+      LOGIN </button>
+  </div>
+  <hr>
+
+  <!-- -------------------------------------------------------------------------------------- -->
+<!-- CAROUSEL  -->
+<div id="carouselExampleControls"  class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner" id= "carouseldiv">
+    <div class="carousel-item active ">
+      <img src="uploads/slide bg1.JPG" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item ">
+      <img src="uploads/slide bg2.JPG" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item ">
+      <img src="uploads/slide bg3.JPG" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<!-- -------------------------------------------------------------------------------------- -->
+  <!-- OUR SERVICES -->
+   
+<div>
+  
+  <p style="background-image: url('https://images.app.goo.gl/MD2GGirhgqkcpuYV8') ;">
+  <div class="card divfloat col-md-3" id="card1"  >
+    <img src="uploads/donation 4.JPG" class="card-img-top" alt="...">
+    <div class="card-body"> DONATE MED
+      <p class="card-text">  We request all doctors and all people to donate unused 
+        medicines to us so that these may be distributed to needy patients free of cost. Your noble gesture will 
+        help in reducing suffering of some poor patient. </p>
+    </div>
+  </div>
+
+  <div class="card divfloat col-md-3" id="card2"  >
+    <img src="uploads/donation 1 .JPG" class="card-img-top" alt="...">
+    <div class="card-body">GET MED FREE
+      <p class="card-text"></p> More than 10,000 companies sell medecines worth Rs 62000 crore a year in India under various brands.
+      But still medeciations are not yet been easily accessible or affordable to each one.
+      Hence, here one can find those medeciations and have them for free
+    </div>
+  </div>
+
+  <div class="card divfloat col-md-3" id="card3" ">
+    <img src="uploads/donation 3.JPG" class="card-img-top" alt="...">
+    <div class="card-body">MISSION
+      <p class="card-text"></p>Being born into poverty puts one at a disadvantage in life. Sickness makes matters worse for the patient as well as the 
+      family that is already struggling with making ends meet.Hence,in order to help 
+      the needful we have come up with this
+    </div>
+  </div>
+  </p>
+  </div>
+
+
+<!-- -------------------------------------------------------------------------------------- -->
+
+<!-- BEAUTY -->
+
+<div id="beauty">
+  <h3>
+    <center>
+      
+    </center>
+  </h3>
+</div>
+
+
+<!-- REACH US -->
+
+<div id="reachus" style="background-color:lightblue ;" >
+  <h3>
+   <p style="color: red;" >
+            REACH US
+
+   </p>
+   
+   
+  </h3>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448181.16374499444!2d76.81307286899002!3d28.64727993478123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1658418885728!5m2!1sen!2sin" width="600" height="450" 
+  style="border:0;" allowfullscreen="" loading="lazy" id="map" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+</div>
+
+<!-- -------------------------------------------------------------------------------------- -->
+<!-- MEET THE DEVELOPERS -->
+<div id="developers">
+  <h3>
+    <p style="color: rgb(4, 130, 214);">
+       <pre> MEET THE DEVELOPER</pre>
+    </p>
+</h3>
+    <div id="mee" >
+      
+      <pre>
+
+        <img src="uploads/mee.jpg" alt="" width="100px ">
+    Developed by:
+
+    Name: Shaivika Anand
+    College: Thapar University, Patiala
+    Semester: 2
+    Email: shaivika.anand@gmail.com
+    Contact: 9654057900
+  </pre>
+
+
+</div>
+  
+  </h3>
+</div>
+
+<div id="guidance">
+
+  <h3>
+    <p style="color: rgb(4, 130, 214);">
+    <pre> UNDER THE GUIDANCE OF:</pre> 
+    </p></h3>
+
+    <div id="mee" >
+      
+      <pre>
+
+        <img src="uploads/sir pic.jpg" alt="" width="120px ">
+    
+
+    Name: Mr.Rajesh Bansal
+    Email:rajesh.bansal@gmail.com
+    Contact:9872246056
+  </pre>
+
+
+</div>
+  
+  </h3>
+  
+</div>
+    
+<!-- -------------------------------------------------------------------------------------- -->
+  
+    
+    <!-- LOGIN BUTTON MODAL -->
+    <div class="modal fade" id="exampleModal" name="loginmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" id="design-login">
+            <h5 class="modal-title" id="exampleModalLabel"><span id="txtmodal">LOGIN HERE</span> </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+  
+          <div class="modal-body">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" id="loginemail" value="bye.world21@gmail.com" class="form-control" id="exampleInputEmail1" name="loginemail" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  
+          <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password"  name="loginpwd" id="loginpwd" class="form-control" id="exampleInputPassword1">
+            </div>
+          </div>
+          <div class="modal-footer" id="design-login" >
+          <button type="button" class="btn btn-danger" name="modalloginbtn" id="modalloginbtn">LOGIN</button>
+         
+      
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    
+<!-- -------------------------------------------------------------------------------------- -->
+
+<!-- <div id="carouselExampleSlidesOnly " class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner carouseldiv">
+    <div class="carousel-item active carouselpic">
+      <img src="uploads/logo2.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item carouselpic">
+      <img src="uploads/medecine 3.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item carouselpic">
+      <img src="uploads/medicine.JPG" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div> -->
+    
+<!-- -------------------------------------------------------------------------------------- -->
+    </div>
+</form> 
+</body>
+</html>

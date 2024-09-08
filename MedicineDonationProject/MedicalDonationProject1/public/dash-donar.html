@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DONAR DASHBOARD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <!-- ------------------------------------------------------------------------------------------------------------------------ -->
+
+  <style>
+
+    .image-modify
+    {
+       border: 6px;
+       border-radius: 8px;
+       border-width: 4px;
+       border-style: ridge;
+    }
+
+    #profile-card
+    {
+        margin-left: 100px;
+        margin-top:50px;
+        float: left;
+    }
+
+    #medicine-card
+    {
+        float: left;
+        margin-left: 100px;
+        margin-top:50px;
+    }
+
+    #settings-card
+    {
+        float: left;
+        margin-left: 100px;
+        margin-top:50px;
+    }
+
+    #logout-card
+    {
+        float: left;
+        margin-left: 100px;
+        margin-top:50px;
+    }
+
+    #heading
+    {
+        background-color: aliceblue;
+        margin-top: 40px;
+        margin-left: 20px;
+        border: 25px;
+        width: 6px;
+        border-style: outset;
+        border-color: red;
+    }
+
+    #heading-title
+    {
+        margin-left: 90px;
+        text-shadow: 3px;
+        text-decoration-line: underline;
+        text-decoration: coral;
+        text-decoration-color: coral;
+    }
+    #heading-title2
+    {
+        margin-left: 20px;
+    }
+
+    #body
+    {
+       background-color: white;
+    }
+
+
+
+  </style>
+  <!-- ------------------------------------------------------------------------------------------------ -->
+
+  <script>
+    $(document).ready(function(){
+
+      // if(localStorage.getItem("activeUser")==null)
+      // {
+      //   window.location.replace("/index.html");
+      // }
+      // ------------------------------------------------
+
+      $("#updatepwddonar").click(function(){
+        var email=$("#txtemail").val();
+        var oldpwd=$("#oldpwd").val();
+        var newpwd=$("#newpwd").val();
+        var url;
+        url="/updatedpwd2?txtemail="+email+"&oldpwd="+oldpwd+"&newpwd="+newpwd;
+        alert(url);
+        $.get(url,function(respond){
+          alert(respond);
+        })
+      });
+
+      $("#logout").click(function(){
+        // alert();
+        localStorage.removeItem("activeUser");
+        window.location.replace("/index.html");
+      })
+
+      
+        // alert();
+        var activeUser=localStorage.getItem("activeUser");
+          $("#txtemail").val(activeUser).prop("readonly",true);
+    });
+  </script>
+
+ 
+   <!-- ------------------------------------------------------------------------------------------------ -->
+
+                                       <!-- HEADING DIV -->
+<body id="body"> 
+    <form action="/donar-profile" method="get"> 
+      
+       <div id="heading"  > 
+        <h1>
+            <center> 
+              <span style="color: red;" id="heading-title">WELCOME
+                <span style="color: rgb(255, 40, 40);" id="heading-title"> TO <span id="heading-title">THE</span><span  id="heading-title2">DASHBOARD</span></span> </span>
+            </center>
+        </h1>
+       </div>                                
+  <!-- ------------------------------------------------------------------------------------------------ -->
+                                        <!-- PROFILE CARD -->
+
+                                        
+  <div class="card" id="profile-card" style="width: 12rem;  ">
+    <img src="uploads/profile 3.jpg" class="image-modify" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><pre>    PROFILE </pre></h5>
+      <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <input type="button" value="CLICK HERE" class="btn btn-outline-danger" onclick='location.href="profile-donar.html"' >
+    </div>
+  </div>
+
+  <!-- ------------------------------------------------------------------------------------------------ -->
+                                        <!-- AVAILABLE MEDICINE CARD -->
+
+   <div class="card" id="medicine-card" style="width: 13rem;  ">
+    <img src="uploads/medecine 3.jpg" class="image-modify" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><pre>DONATE MEDICINES</pre></h5>
+      <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <input type="button" value="CLICK HERE" onclick="location.href='avail-medicine.html'" class="btn btn-outline-info">
+    </div>
+  </div>                                      
+   <!-- ------------------------------------------------------------------------------------------------ -->
+                                        <!-- SETTINGS -->
+  <div class="card" id="settings-card" style="width: 13rem;  ">
+    <img src="uploads/setting 5.jpg" class="image-modify" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><pre>     SETTINGS</pre></h5>
+      <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <input type="button" value="CLICK HERE" class="btn btn-outline-danger" data-bs-toggle="modal" name="settingbtn" id="settingbtn"
+      action="signup-process" id="signupbtn"  data-bs-target="#staticBackdrop">
+    </div>
+  </div>
+
+   <!-- button trigger modal -->
+   <form method="get" >
+    
+        
+        
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" id="design-signup" >
+                <h5 class="modal-title" > <span id="txtmodal"> CHANGE PASSWORD HERE</span> </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" name="txtemail" value="hello.world21@gmail.com" id="txtemail" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">Confirm your email address please</div>
+      
+                  <div class="mb-3">
+                      <label for="exampleInputPassword1"  class="form-label">Old Password</label>
+                      <input type="password" value="bye" name="oldpwd" class="form-control" id="oldpwd">
+                    </div>
+      
+                    <div class="mb-3">
+                      <label for="inputState" class="form-label"> New Password</label>
+                      <input type="password" class="form-control" id="newpwd" name="newpwd" >
+                      <div id="emailHelp" class="form-text">Please type a strong password</div>
+                    </div>
+              </div>
+              <div class="modal-footer" id="design-signup">
+                  <button type="button" class="btn btn-info" name="updatepwddonar" id="updatepwddonar" >UPDATE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </form>
+  <!-- ------------------------------------------------------------------------------------------------ -->
+                                        <!-- LOGOUT -->
+
+  <div class="card" id="logout-card" style="width: 12rem;  ">
+    <img src="uploads/logout 2.PNG" class="image-modify" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><pre>      LOGOUT</pre></h5>
+      <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <input type="button" value="CLICK HERE" class="btn btn-outline-info" id="logout" name="logout">
+    </div>
+  </div>
+  <!-- ------------------------------------------------------------------------------------------------ -->
+  </form>
+</body>
+</html>  

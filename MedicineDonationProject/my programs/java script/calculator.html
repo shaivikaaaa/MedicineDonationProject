@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+
+<style>
+    #clear
+    {
+        width: 110px;
+      
+        background-color: rgb(200, 234, 253);
+        height: 30px;
+    }
+
+    #eval
+    {
+        width: 180px;
+        background-color: rgb(255, 200, 127);
+        height: 80px;
+    }
+
+    .button
+    {
+        width: 135px;
+        height: 60px;
+        background-color:rgb(255, 145, 133) ;
+
+        
+    }
+
+    #clear2
+    {
+        margin-left: 50px;
+    }
+
+    #button2
+    {
+        width:316.75px;
+        background-color: rgb(127, 206, 255);
+        
+    }
+
+    #button3
+    {
+        background-color: rgb(255, 145, 133);
+        height: 60px;
+       
+    }
+    
+    .general_button
+    {
+        width: 80px;
+        height: 50px;
+    }
+
+    #equaltoo
+    {
+        width:80px;
+        height:100px;
+        
+    }
+
+</style>
+
+<script>
+
+    function doeval(txtref)
+    {
+
+        var res=eval(txtref.value);
+        txtref.value=res;       
+    }
+
+    function type1()
+    {
+        var one='1';
+        document.frm1.answer.value=one;
+
+    }
+
+  
+</script>
+
+
+<body>
+    <form id="frm1">
+        <center>
+        <table border="1", rules="all" width="30%">
+            
+            <tr>
+                <h1><b><u>CALCULATOR</u></b></h1>
+            </tr>
+
+            <tr aria-colspan="2">
+                <td id="eval"> <center><input type="text" name="answer" id="txtscr" width="660" id="" autofocus></td></center>
+                <td id="clear" >  <input  type="button" name= "CLEAR" class="general_button" value="CLEAR" id="clear2" onclick="frm1.answer.value='' "; </td>
+               
+            </tr>
+        </center>
+        </table>
+
+        <table border="1" rules="all" width="30%" >
+            <center>
+                <tr>
+                    <td class="button"> <center> <input class="general_button" type="button" id="" value="1" onclick="frm1.answer.value+='1'; onkeypress=frm1.answer.value+='1';"></td></center>
+                    <td class="button"><center><input class="general_button" type="button" id="" value="2" onclick="frm1.answer.value+='2';"></td></center>
+                    <td class="button"><center><input class="general_button" type="button" id="" value="3" onclick="frm1.answer.value+='3';" >  </td></center>>
+                    <td class="button"><center><input class="general_button" type="button" id="" value="+" onclick="frm1.answer.value+='+';" >  </td></center>
+                </tr>
+                <tr> 
+                    <td class="button"><center><input class="general_button" type="button" id="" value="4"  onclick="frm1.answer.value+='4';" ></td></center>
+                    <td class="button"><center><input class="general_button" type="button" id="" value="5"  onclick="frm1.answer.value+='5';" ></td></center>
+                    <td class="button"><center> <input  class="general_button" type="button" id="" value="6" onclick="frm1.answer.value+='6';"></td</center>
+                    <td class="button"><center><input class="general_button" type="button" id="" value="-"  onclick="frm1.answer.value+='-';" ></td></center>
+                </tr> 
+                <tr> 
+                    <td class="button"><center><input class="general_button" type="button" id="" value="7"  onclick="frm1.answer.value+='7';"> </td></center>
+                    <td class="button"> <center><input class="general_button" type="button" id="" value="8" onclick="frm1.answer.value+='8';" ></td></center>
+                    <td class="button"> <center><input class="general_button" type="button" id="" value="9" onclick="frm1.answer.value+='9';" ></td></center>
+                    <td class="button"> <center><input class="general_button" type="button" id="" value="*" onclick="frm1.answer.value+='*';" ></td></center>
+                </tr>
+                <tr>
+                 
+                    <td class="button"><center> <input class="general_button" type="button" id="" value="0" onclick="frm1.answer.value+='0';" ></td</center>
+                    <td class="button"><center><input class="general_button" type="button" id="" value="."  onclick="frm1.answer.value+='.';" ></td></center>
+                    <td class="button"><center><input class="general_button" type="button" id="" value="<-" onclick="frm1.answer.value+='<-';" ></td</center>
+                    <td class="button"><center><input class="general_button" type="button" id="" value="/"  onclick="frm1.answer.value+='/';" ></td></center>
+                </tr> 
+                
+                   
+                </tr>
+            </center>
+        </table>
+
+        <table border="1" rules="all" width="30%">
+            <center>
+                <tr> 
+                    <td id="button2">  <center> <input type="button" id="equaltoo" name="" value="="  onclick="doeval(txtscr);" ></td></center> 
+                    <td id="button3" > <center><input type="button" id="" name="" value="%" onclick="frm1.answer.value+='%';" ></td></center>
+                </tr>    
+            </center>
+        </table>   
+    </form>
+</body>
+</html>

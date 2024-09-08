@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+
+  <style>
+    #design {
+      background-color: rgb(239, 178, 159);
+      width: 60%;
+      height: 600px;
+      align-items: center;
+      margin-left: 200px;
+      border: 10px;
+      border-style: solid;
+    }
+
+    .stylebutton {
+      width: 100px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      margin-right: 30px;
+      height: 100px;
+    }
+  </style>
+
+  <script>
+
+    function calcbill(refac,refcooler,ref_fan,refunits)
+    {
+        var unitbill, acbill,coolerbill,fanbill, totalbill;
+        
+        unitbill=5*refunits.value;
+        frm.billUnits.value=unitbill;
+
+        acbill=100*refac.value;
+        frm.billAC.value=acbill;
+
+        coolerbill=50*refcooler.value;
+        frm.billCooler.value=coolerbill;
+
+        fanbill=20*ref_fan.value;
+        frm.billFan.value=fanbill;
+
+      totalbill=acbill+fanbill+coolerbill+unitbill;
+      frm.billTotal.value=totalbill;
+
+    }
+
+    function calcdiscount()
+    {
+     var total,dis,optnselectedres,optnselectedcom;
+     total= frm.querySelector("#billTotal");
+    optnselectedcom= frm.querySelector("#commer");
+     if(optnselectedcom.checked)
+     {
+      dis=0.1*total.value;
+      frm.billDiscount.value=dis;
+     }
+
+     optnselectedres= frm.querySelector("#resend") ;
+     if(optnselectedres.checked)
+     {
+      dis=0.2*total.value;
+      frm.billDiscount.value=dis;
+     }
+    }
+
+    function calcnet()
+    {
+      var net,total,disc;
+      total=frm.querySelector("#billTotal");
+      disc=frm.querySelector("#billDiscount");
+      net=total.value-disc.value;
+      frm.billTotalafterDiscount.value=net;
+
+    }
+        
+
+  
+
+
+  </script>
+
+  <body>
+    <form id='frm'>
+      <div id="design">
+        <center>
+          <p>
+            <b>Units Consumed </b><input type="text" name="units " id="txtUnits" autofocus />
+          </p>
+
+          <div>
+            <b>AC</b> <input type="text" name="acunits" id="txtAC" /> 
+            <b>Cooler</b><input type="text" name="acunits" id="txtCooler" /> 
+            <b>Fan</b> <input type="text" name="fanunits" id="txtFan" />
+          </div>
+          <br />
+
+          <div>
+            <p>
+              Commercial (20%) <input type="radio" name="samegroup" id="commer" />
+              <!--/* name is specified as same so that user can select only one option at a time */ -->
+              Resedential (10%) <input type="radio" name="samegroup"  id="resend" />
+            </p>
+          </div>
+          <br />
+          <br />
+
+          <div>
+            <input
+              type="button"
+              value="Bill"
+              class="stylebutton"
+              id="txtbill"
+              onclick="calcbill(txtAC,txtCooler,txtFan,txtUnits);"
+            />
+            <input
+              type="button"
+              value="Discount"
+              class="stylebutton"
+              id="txtdiscount"
+              onclick="calcdiscount();"
+            />
+            <input
+              type="button"
+              value="Net"
+              class="stylebutton"
+              id="txtnet"
+              onclick="calcnet();"
+            />
+          </div>
+          <br />
+          <br />
+
+          <div>
+            AC Bill <input type="text" id="billAC" /> 
+            Cooler Bill<input type="text" id="billCooler" /> 
+            Fan Bill<input type="text" id="billFan" />
+          </div>
+          <br />
+          <br />
+
+          <div>
+            Units Bill <input type="text" id="billUnits" /> </div>
+            <br>
+           <div> Total Bill<input type="text" id="billTotal" /> </div>
+         
+          <br />
+          <br />
+
+          <div>
+            Discount
+            <input type="text" id="billDiscount" /> 
+            Net=Total-Discount<input  type="text" id="billTotalafterDiscount" />
+           
+              
+          </div>
+        </center>
+      </div>
+    </form>
+  </body>
+</html>

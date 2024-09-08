@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="js/angular.min.js"></script>
+  <!---------------------------------------------------------------------------------------------------  -->
+<script>
+    var modulekuch=angular.module("myModule",[]);
+    modulekuch.controller("myController",function($scope,$http){
+        
+
+        $scope.jsonAry=[];
+
+        $scope.fetchAllRecords=function()
+    {
+      
+      $http.get("/fetchAllRecords").then(fxsuccess,function(response){
+        alert(JSON.stringify(response.data))
+      });
+
+      function fxsuccess(response)
+      {
+       alert(JSON.stringify(response.data));
+       $scope.jsonAry=response.data;
+       }
+    }
+    // ---------------------------------------------------------------------------
+    $scope.blockuser=function(email,index)
+    {
+      if (confirm("ARE YOU SURE")==false)
+      return;
+      var url="/user-block-angular?emailidx="+email;
+      $http.get(url).then(fxsuccess,function(response){
+      alert(response.data)
+    });
+
+    function fxsuccess(response)
+    {
+      // alert(JSON.stringify(response.data));
+      $scope.fetchAllRecords();
+    }
+  }
+
+   // ---------------------------------------------------------------------------
+
+   $scope.unblockuser=function(email,index)
+    {
+      if (confirm("ARE YOU SURE")==false)
+      return;
+      var url="/user-unblock-angular?emailidx="+email;
+      $http.get(url).then(fxsuccess,function(response){
+      alert(response.data)
+    });
+
+    function fxsuccess(response)
+    {
+      // alert(JSON.stringify(response.data));
+      $scope.fetchAllRecords();
+    }
+  }    
+    });
+
+    
+</script>
+ <!---------------------------------------------------------------------------------------------------  -->
+
+ <style>
+  .table
+  {
+    
+    padding-right: 3px;
+    margin-right: 3px;
+  }
+
+  td
+  {
+    padding-right: 2px;
+    padding-left: 2px;
+    /* margin-top: 3px; */
+    padding-top: 3px;
+  }
+ </style>
+
+  <!---------------------------------------------------------------------------------------------------  -->
+
+  <body ng-app="myModule" ng-controller="myController" ng-init=fetchAllRecords();status();>
+    <form>
+        <div class="container">
+            <center>
+                <div>
+                   <h2>
+                    MEDICAL DONATION PORTAL
+                   </h2>
+                </div>
+ <!---------------------------------------------------------------------------------------------------  -->
+<table border="1" rules="all" width="1000" height="600" class="table" >
+    <tr bgcolor="#66ccff">
+        <th>sr no</th>
+        <th>email</th>
+        <th>utype</th>
+        <th>status</th>
+        <th>block/unblock</th>
+        <!-- <th>block/unblock</th> -->
+    </tr>
+
+    <tr ng-repeat="obj in jsonAry">
+      <td>{{$index}}</td>
+      <td>{{obj.email}}</td>
+      <td>{{obj.utype}}</td>
+      <td>{{obj.status}}</td>
+      <td> <input type="button" value="block" class="btn btn-outline-danger" ng-click="blockuser(obj.email,$index);" >   
+      <input type="button" value="unblock" class="btn btn-outline-danger" ng-click="unblockuser(obj.email,$index);" > 
+      </td>
+         
+
+    </tr>
+</table>
+<!---------------------------------------------------------------------------------------------------  -->              
+            </center>
+         </div>
+    </form>
+  </body>
+</html>

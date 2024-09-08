@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/angular.min.js"></script>
+    <!-- <script src="js/jquery-1.8.2.min.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+
+    <script>
+
+      var  modulekuch=angular.module("myModule",[]);
+        modulekuch.controller("myController",function($scope,$http){
+            $scope.fname="Shaivika Anand";
+
+            $scope.doJoin=function()
+                {
+                      $scope.full=$scope.fn+" "+$scope.ln;  
+                }
+
+         $scope.months=["jan","feb","march","april","may"];
+
+         $scope.jsonAry=[];
+         
+
+
+        })
+
+       
+            
+    
+    </script>
+
+
+</head>
+<body ng-app="myModule" ng-controller="myController">
+    {{fname}}
+    <p>
+        <input type="text" ng-model="fname">
+    </p>
+   
+        <hr>
+        <p>F.Name <input type="text" ng-model="fn"> </p>
+        <p>F.Name <input type="text" ng-model="ln"> </p>
+        <p>
+            <input type="button" value="Join Now" ng-click="doJoin();">
+        </p>
+        <p>
+            full Name= <input type="text" ng-model="full">
+        </p>
+    <hr>
+    Select month
+    <select>
+       <option ng-repeat="x in months" value="{{x}}">{{x}}</option>
+    </select>
+
+
+    
+    
+</body>
+</html>

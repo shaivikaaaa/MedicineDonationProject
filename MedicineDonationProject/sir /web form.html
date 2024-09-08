@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <form>
+        <table   width="400" border="1">
+            <tr>
+                <th colspan="2"><h3>Web Forms</h3></th>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Name</label>
+                </td>
+                <td>
+                    <input type="text" required placeholder="max 15 chars" maxlength="15" >
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input type="email" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    <input type="password">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>Date of Birth</td>
+                <td>
+                    <input type="date">
+                </td>
+            </tr>
+            <tr>
+                <td>Branch</td>
+                <td>
+                    <input type="radio" name="x" >Computers
+                    <input type="radio" name="x">Elect.
+
+                </td>
+            </tr>
+            <tr>
+                <td>Tech. U Know</td>
+                <td>
+                    <input type="checkbox"  >C++
+                    <input type="checkbox" >NodeJS
+                </td>
+            </tr>
+            <tr>
+                <td>State- Combobox</td>
+                <td>
+                    <select>
+                        <option value="none">Select</option>
+                        <option value="PB" selected>Punjab</option>
+                        <option value="HP" >HIMACHAL</option>
+                        <option value="HR">Haryana</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Techs- Listbox</td>
+                <td>
+                    <select size="5" multiple>
+                        <option >Select</option>
+                        <option>Java</option>
+                        <option  selected>Nodejs</option>
+                        <option value="Python">Python</option>
+                        <option value="DSA">DSA</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Comments</td>
+                <td>
+                    <textarea  cols="50" rows="5"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Profile Pic</td>
+                <td>
+                    <input type="file">
+                    <br>
+                    <input type="time">
+                    <br>
+                    <input type="range" max="55" min="20" value="30">
+                    <br>
+
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="submit" value="Save">
+                    <input type="reset" value="Clear All">
+                    
+                </th>
+            </tr>
+            
+        </table>
+    </form>
+    </center>
+</body>
+</html>
